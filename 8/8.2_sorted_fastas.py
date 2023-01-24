@@ -7,20 +7,27 @@ i = 0
 flag = 0
 inf = open('Homo.fasta', 'r')
 for line in inf:
-	#print(i)
-	if line.startswith('>') and flag == 1:
+	if line.startswith('>') and flag == 0:
+		head = line.strip()
+	elif line.startswith('>') and flag == 1:
 		col = []
-		col.append(line.strip())
+		col.append(head)
 		col.append(seq)
 		col.append(str(length))
 		table.append(col)
-		print(col[0])
+		head = line.strip()
 		length = 0
-		seq = ''
+		seq = ""
 	else:
 		length += len(line.strip())
 		seq += line.strip()
 		flag = 1
+else:
+	col = []
+	col.append(head)
+	col.append(seq)
+	col.append(str(length))
+	table.append(col)
 for row in table:
 	print(row[2], '\n')
 table_sorted = sorted(table, key = itemgetter(2))
