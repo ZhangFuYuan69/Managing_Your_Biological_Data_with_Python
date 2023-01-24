@@ -15,9 +15,11 @@ print(out1)
 i = 0
 out2 = ''
 for row in table_sorted:
-    i += 1
+    #i += 1
     if i <3:
         line1 = [str(x) for x in row]
-        out2 +='\t'.join(line1) + '\n'
+        out2 ='\t'.join(line1) + '\n'
         outf.write(out2)
-        
+    i += 1
+inf.close()
+outf.close()
