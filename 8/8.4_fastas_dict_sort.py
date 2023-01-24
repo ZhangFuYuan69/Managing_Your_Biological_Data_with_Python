@@ -5,16 +5,17 @@ seq = ''
 col = {}
 for line in inf:
     if line.startswith('>') and flag ==1:
-        ac_number = line.strip().split('|')[1]
         col[ac_number] = seq
         seq = ''
-        ac_number = ''
+        ac_number = line.strip().split('|')[1]
         #print(col)
     elif line.startswith('>'):
         ac_number = line.strip().split('|')[1]
     else:
         seq += line.strip()
         flag = 1
+else:
+    col[ac_number] = seq
 
 #print(table)
 col_sorted = sorted(col.keys())
