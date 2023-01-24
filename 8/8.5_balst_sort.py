@@ -11,5 +11,5 @@ table_sorted = sorted(table, key = itemgetter(8))
 
 for row in table_sorted:
 	row = [str(x) for x in row]
-	outf.write('\t'.join(row))
+	outf.write(','.join(row))
 outf.close()
