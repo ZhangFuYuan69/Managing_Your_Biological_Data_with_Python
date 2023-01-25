@@ -11,7 +11,7 @@ for line in inf:
 		seqs[seq_name] += line.strip()
 
 for seq_name in seqs.keys():
-	if 'kinase' and 'Homo sapiens' in seq_name:
+	if 'Homo sapiens' in seq_name and 'kinase' in seq_name:
 		seq_s.append(seq_name)
 
 for seq_name in seq_s:
